@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+
+
+class bookInfo{
+    private:
+        std::string author;
+        std::string title; 
+        bool isAvailable;
+
+    public:
+        bookInfo (std::string a, std::string b) : author(a), title (b), isAvailable(true) {}
+            
+        std::string getAuthor(){return author;}
+        std::string getTitle(){return title;}
+        bool getAvailability(){return isAvailable;}
+    void borrowbook()
+    {
+        if (isAvailable)
+        {
+            isAvailable = false; 
+            std::cout << title << " has been borrowed." << std::endl;
+        }
+        else std::cout << title << " is not available." << std::endl;
+    }
+
+    void returnbook()    
+    {
+        isAvailable = true;
+        std::cout << title << " is returned.";
+    }
+
+};
+
+class User{
+    protected:
+        std::string name;
+        int userID;
+        
+    public:
+    User ( std::string a, int b): name(a), userID(b){}
+
+    std::string getName(){return name;}
+    int getUserID (){return userID;}
+    
+    void displayUserInfo(){
+        std::cout << "Name: " << name << std::endl << "ID: " << userID << std::endl;
+    }
+
+};
+
+class Member : public User {
+    int borrowedBooks;
+    int borrowbook;
+
+    public:
+        Member(std::string a , int b): User ( a, b), borrowedBooks(0) {}
+
+        void borrowBook(bookInfo& book){
+            if ( borrowedBooks <3 )
+                {
+                    book.borrowbook;
+
+                }
+        }
+};
+
+
+int main (){
+
+return 0;
+}
