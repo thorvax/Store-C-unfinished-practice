@@ -10,6 +10,15 @@ void welcome(float AppleSrp, float OrangeSrp, float PineappleSrp, float Watermel
     std::cout << "Watermelon: " << WatermelonSrp << std::endl;
     std::cout << "Guyabano: " << GuyabanoSrp << std::endl;
 }
+void displayPrices (float AppleSrp, float OrangeSrp, float PineappleSrp, float WatermelonSrp, float GuyabanoSrp) {
+    std::cout << "\n\nSure ! \n Here is the list of our products and their prices:\n";
+    std::cout << "Apple: " << AppleSrp << std::endl;
+    std::cout << "Orange: " << OrangeSrp << std::endl;
+    std::cout << "Pineapple: " << PineappleSrp << std::endl;
+    std::cout << "Watermelon: " << WatermelonSrp << std::endl;
+    std::cout << "Guyabano: " << GuyabanoSrp << std::endl;
+    
+}
 
 // check and display prices if zero
 void checkAndDisplayEmptyProducts(float AppleSrp, float OrangeSrp, float PineappleSrp, float WatermelonSrp, float GuyabanoSrp) {
@@ -85,6 +94,7 @@ int main() {
     float GuyabanoSrp = 0;
 
     std::string FunProgram;
+     std::string answer; // I put this over here to accept either yes or no or display price list.
 
     while (true) { // the start of the running program
         std::cout << std::endl << "Would you like to run the program or not?\n"
@@ -95,7 +105,7 @@ int main() {
             welcome(AppleSrp, OrangeSrp, PineappleSrp, WatermelonSrp, GuyabanoSrp);
             checkAndDisplayEmptyProducts(AppleSrp, OrangeSrp, PineappleSrp, WatermelonSrp, GuyabanoSrp);
 
-            std::string answer; // name:PRod Ask if change the products's price
+            // name:PRod Ask if change the products's price
             if(AppleSrp == 0 || OrangeSrp == 0 || PineappleSrp == 0 || WatermelonSrp == 0 || GuyabanoSrp == 0)
             {std::cout << "It seems some of our products' price above are empty: would you like to change its prices? (yes/no)\n";
             std::cin >> answer;}
@@ -104,7 +114,19 @@ int main() {
 
             if (answer == "yes") { // if PRod yes
                 changeMultiplePrices(AppleSrp, OrangeSrp, PineappleSrp, WatermelonSrp, GuyabanoSrp);
+            } 
+            if ( answer == "No" || "no" || "NO") { break;
+            } 
+            if ( answer == "Display" || "display" || "DISPLAY") {   
+                welcome(AppleSrp, OrangeSrp, PineappleSrp, WatermelonSrp, GuyabanoSrp);
+            checkAndDisplayEmptyProducts(AppleSrp, OrangeSrp, PineappleSrp, WatermelonSrp, GuyabanoSrp);
+
             }
+            if ( answer != "Display" || "display" || "DISPLAY" || "No" || "no" || "NO" || "yes" )std::cout << std::endl << "__________________________________________________" 
+            << std::endl << "Invalid input. Please enter either 'run' or 'end'.\n" << 
+            "___________________________________________________" << std::endl;
+            
+        
         } else if (FunProgram == "end") {
             break;
         } else {
