@@ -109,25 +109,26 @@ int main() {
             if(AppleSrp == 0 || OrangeSrp == 0 || PineappleSrp == 0 || WatermelonSrp == 0 || GuyabanoSrp == 0)
             {std::cout << "It seems some of our products' price above are empty: would you like to change its prices? (yes/no)\n";
             std::cin >> answer;}
-            else continue;
             
-
+            while (true){
             if (answer == "yes") { // if PRod yes
                 changeMultiplePrices(AppleSrp, OrangeSrp, PineappleSrp, WatermelonSrp, GuyabanoSrp);
             } 
-            if ( answer == "No" || "no" || "NO") { break;
+            else if ( answer == "No" || "no" || "NO") { break;
             } 
-            if ( answer == "Display" || "display" || "DISPLAY") {   
+            else if ( answer == "Display" || "display" || "DISPLAY") {   
                 welcome(AppleSrp, OrangeSrp, PineappleSrp, WatermelonSrp, GuyabanoSrp);
             checkAndDisplayEmptyProducts(AppleSrp, OrangeSrp, PineappleSrp, WatermelonSrp, GuyabanoSrp);
 
             }
-            if ( answer != "Display" || "display" || "DISPLAY" || "No" || "no" || "NO" || "yes" )std::cout << std::endl << "__________________________________________________" 
-            << std::endl << "Invalid input. Please enter either 'run' or 'end'.\n" << 
-            "___________________________________________________" << std::endl;
+            else {std::cout << std::endl << "__________________________________________________" 
+            << std::endl << "Invalid input. Please enter either 'yes' or 'no'.\n" << 
+            "___________________________________________________" << std::endl;}
             
         
-        } else if (FunProgram == "end") {
+        }} else if (FunProgram == "end") {
+            
+            std::cout << "\n The user has initiated to end the program " << std::endl << std::endl;
             break;
         } else {
             std::cout << std::endl << "__________________________________________________" 
